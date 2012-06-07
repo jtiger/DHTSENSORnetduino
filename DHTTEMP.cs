@@ -34,7 +34,7 @@ if (read()){
         return f;
     
 }
-Serial.print("Read Fail");
+Debug.Print("Read Fail");
 return NAN;
 }
 
@@ -59,7 +59,7 @@ float DHT readHumidity(void) {
             return f;
     }
 }
-Serial.print("Read fail");
+Debug.Print("Read fail");
 return NAN;
 }
 
@@ -72,6 +72,7 @@ long currenttime;
 //pull the pin high and wait 250 milliseconds
 
 
+Thread.Sleep(250);
 
 
 
