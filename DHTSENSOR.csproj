@@ -30,7 +30,7 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="CodeFile1.cs" />
+    <Compile Include="DHTTEMP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DHTSENSOR.cs" />
   </ItemGroup>
