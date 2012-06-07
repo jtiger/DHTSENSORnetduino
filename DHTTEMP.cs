@@ -71,8 +71,50 @@ byte i;
 long currenttime;
 //pull the pin high and wait 250 milliseconds
 
-
+digitalWrite(_pin, HIGH);
 Thread.Sleep(250);
+
+currenttime=millis();
+if (currenttime<_lastreadtime){
+    //ie there was a rollover
+    _lastreadtime=0;
+    }
+if (!firstreading && ((currenttime-_lastreadtime)<2000)){
+    return true; 
+    //return last correct measurement
+    //delay(2000-(currenttime-_lastreadtime));
+}
+firstreading=false;
+
+Debug.print("Currtime: ");
+Debug.print(currenttime);
+Debug.print("Lasttime: ");
+Debug.print(_lastreadtime);
+
+_lastreadtime=millis();
+
+data[0]=data[1]=data[2]=data[3]=data[4]=0;
+
+//pull low for 20 millsecounds
+
+pinMode(_pin,OUTPUT);
+digitalWrite(_pin,LOW);
+Thread.Sleep(20);
+cli();
+digitalWrite(_pin, HIGH);
+Thread.Sleep(.004);  //delay for 40 ms
+pinMode(_pin,INPUT);
+
+
+//read in timings
+
+for (i=0; i<MAXTIMINGS; i++){
+    counter=0;
+    
+
+
+}
+
 
 
 
